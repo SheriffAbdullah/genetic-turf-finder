@@ -1,5 +1,18 @@
 # Genetic Turf Finder
 
+## Table of Contents
+- [Live Demo](#live-demo)
+- [Overview](#overview)
+- [Genetic Algorithm](#genetic-algorithm)
+  - [Why Genetic Algorithms?](#why-genetic-algorithms)
+- [Outlier Discounting](#outlier-discounting)
+- [Haversine Distance](#haversine-distance)
+- [Weighted Users](#weighted-users)
+- [Potential Work Areas](#potential-work-areas)
+- [Features](#features)
+- [Installation and Setup](#installation-and-setup)
+- [Running the Application](#running-the-application)
+
 ## Live Demo
 Check out the live demo of Genetic Turf Finder [here](https://genturf.streamlit.app).
 
@@ -24,7 +37,7 @@ Users who are identified as outliers are excluded from the optimization process,
 Haversine distance is used to calculate distance between 2 points on the Earth's surface taking into account the curvature. This is more accurate opposed to regular euclidean distance, since we are dealing with geographic locations. This can be replaced with ground-truth travel distance, and extra variables like the traffic, time taken, and so on can be accounted for. 
 
 ## Weighted Users
-To prioritise the distance travelled by a certain user, in our optimization strategy, a priority user is given a weight of 1, while other users are assigned a weight of 0.5. This weighting influences the genetic algorithm to favor solutions that are closer to the priority user. I personally don't think this would make life easier, but it exists just to show that user-specific preferences can be implemented into the algorithm.
+To prioritise the distance travelled by a certain user, in our optimization strategy, a priority user is given a weight of 1, while other users are assigned a weight of 0.5. This weighting influences the genetic algorithm to favor solutions that are closer to the priority user. This feature showcases the flexibility of the algorithm. 
 
 ## Potential Work Areas
 - **Distance metric**
