@@ -1,7 +1,7 @@
 # Genetic Turf Finder
 
 ## Live Demo
-Check out the live demo of the Genetic Turf Finder [here](https://your-live-demo-url.com).
+Check out the live demo of Genetic Turf Finder [here](https://genturf.streamlit.app).
 
 ## Overview
 The Genetic Turf Finder uses a **genetic algorithm** to determine **best turf locations** based on user inputs. This leverages the promise of genetic algorithms - to provide **suboptimal yet satisfactory solutions** with less computational demand and flexibility.
@@ -17,29 +17,29 @@ The core of this application is a genetic algorithm, which is well-suited for pr
 - **Flexibility**: These algorithms can adapt to various constraints and requirements, making them versatile for different optimization problems.
 - **Computational Efficiency**: Low compute-time and resources required.
 
-## Haversine Distance
-Haversine distance is used to calculate distance between 2 points on the Earth's surface taking into account the curvature. This is more accurate opposed to regular euclidean distance, since we are dealing with geographic locations. This can be replaced with ground-truth travel distance, and extra variables like the traffic, time taken, and so on can be accounted for. 
-
 ## Outlier Discounting
 Users who are identified as outliers are excluded from the optimization process, which helps improving Turf suggestions because of diminishing sensitivity of distance. This is done by calculating the standard deviation of user locations and allowing users to set a threshold to determine which locations are considered outliers. By excluding these outliers, the algorithm can focus on optimizing turf locations for the majority of users, leading to more reliable results. Small differences in shorter distances (e.g., 1 km vs. 3 km) are perceived as more significant than similar differences in longer distances (e.g., 35 km vs. 37 km).
+
+## Haversine Distance
+Haversine distance is used to calculate distance between 2 points on the Earth's surface taking into account the curvature. This is more accurate opposed to regular euclidean distance, since we are dealing with geographic locations. This can be replaced with ground-truth travel distance, and extra variables like the traffic, time taken, and so on can be accounted for. 
 
 ## Weighted Users
 To prioritise the distance travelled by a certain user, in our optimization strategy, a priority user is given a weight of 1, while other users are assigned a weight of 0.5. This weighting influences the genetic algorithm to favor solutions that are closer to the priority user. I personally don't think this would make life easier, but it exists just to show that user-specific preferences can be implemented into the algorithm.
 
-## Features
+## Potential Work Areas
+- **Distance metric**
+  - Distance metric could be **upgraded to suit real-world variables like travel time and travel distance, varying mode of transport, and the like**.
+- The **genetic algorithm** - chromosome representation, fitness function, selection function, crossover function, mutation function, & more.
+  - This can be improved to produce better solutions, in faster time.
+- **Outlier Discounting**.
+  - Outliers could be identified based on input from the user or better mathematical models.
+- **Weighted Users**.
+  - Multiple users could be assigned varying weights by the user.
+
+ ## Features
 - Interactive map visualization with user and turf locations.
 - Customizable optimization strategies including user prioritization and outlier discounting.
 - Real-time results display with initial and re-optimized turf locations (with Outlier Discounting).
-
-- ## Potential Work Areas
-- Distance metric - Haversine Distance.
-  - Distance metric could be upgraded to suit real-world variables like travel time and travel distance, varying mode of transport, and the like.
-- The genetic algorithm's core - chromosome representation, fitness function, selection function, crossover function, mutation function, & more.
-  - This can be improved to produce better solutions, in faster time.
-- Outlier Discounting.
-  - Outliers could be identified based on real-world dependencies or better mathematical models.
-- Weighted Users.
-  - Multiple users could be assigned varying weights by the user. 
 
 ## Installation and Setup
 To set up the Genetic Turf Finder locally, follow these steps:
