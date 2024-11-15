@@ -9,6 +9,7 @@
 - [Haversine Distance](#haversine-distance)
 - [Weighted Users](#weighted-users)
 - [Potential Work Areas](#potential-work-areas)
+- [Motivation](#motivation)
 - [Features](#features)
 - [Installation and Setup](#installation-and-setup)
 - [Running the Application](#running-the-application)
@@ -30,6 +31,20 @@ The core of this application is a genetic algorithm, which is well-suited for pr
 - **Flexibility**: These algorithms can adapt to various constraints and requirements, making them versatile for different optimization problems.
 - **Computational Efficiency**: Low compute-time and resources required.
 
+```mermaid
+graph TD;
+    A[Start] --> B[Input User Locations and Preferences]
+    A --> C[Input Turf Locations]
+    B --> D[Calculate Haversine Distance]
+    C --> D
+    D --> E[Apply Outlier Discounting]
+    E --> F[Genetic Algorithm Optimization]
+    F --> G[Incorporate Weighted Users]
+    G --> H[Determine Best Turf Locations]
+    H --> I[Display Results on Interactive Map]
+    I --> J[End]
+```
+
 ## Outlier Discounting
 Users who are identified as outliers are excluded from the optimization process, which helps improving Turf suggestions because of diminishing sensitivity of distance. This is done by calculating the standard deviation of user locations and allowing users to set a threshold to determine which locations are considered outliers. By excluding these outliers, the algorithm can focus on optimizing turf locations for the majority of users, leading to more reliable results. Small differences in shorter distances (e.g., 1 km vs. 3 km) are perceived as more significant than similar differences in longer distances (e.g., 35 km vs. 37 km).
 
@@ -48,8 +63,11 @@ To prioritise the distance travelled by a certain user, in our optimization stra
   - Outliers could be identified based on input from the user or better mathematical models.
 - **Weighted Users**.
   - Multiple users could be assigned varying weights by the user.
+ 
+## Motivation
+Genetic Turf Finder is intended as a prototype for business like [Playo](https://playo.co) & [Turf Town](https://turftown.in), to enable users to find a closest turf for a group or smartly handle outliers, making the process effortless and intuitive. Easier decision-making, happier turf-goers. 
 
- ## Features
+## Features
 - Interactive map visualization with user and turf locations.
 - Customizable optimization strategies including user prioritization and outlier discounting.
 - Real-time results display with initial and re-optimized turf locations (with Outlier Discounting).
