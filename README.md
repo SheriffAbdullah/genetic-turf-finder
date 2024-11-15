@@ -15,13 +15,15 @@
 - [Running the Application](#running-the-application)
 
 ## Live Demo
-Check out the live demo of Genetic Turf Finder [here](https://genturf.streamlit.app).
+Check out the live demo [here](https://genturf.streamlit.app).
 
 ## Overview
 The Genetic Turf Finder uses a **genetic algorithm** to determine **best turf locations** based on user inputs. This leverages the promise of genetic algorithms - to provide **suboptimal yet satisfactory solutions** with less computational demand and flexibility.
 
 **Input:** Turf locations, user locations, and user preferences.  
 **Output:** The best-suited turf(s).
+
+Click [here](assets/process-diagram.png) for the **process diagram**, and click [here](assets/high-level-algorithm.png) for the **high-level algorithm**.
 
 ## Genetic Algorithm
 The core of this application is a genetic algorithm, which is well-suited for problems where exact solutions are not necessary, the solution space is vast with numerous variables, making the problem computationally intensive or NP-hard in nature. Genetic algorithms mimic the process of natural selection, providing a robust method for optimization.
@@ -30,20 +32,6 @@ The core of this application is a genetic algorithm, which is well-suited for pr
 - **Suboptimal Solutions**: Genetic algorithms are ideal for scenarios where a perfect solution is not required. They provide good enough solutions that are computationally efficient.
 - **Flexibility**: These algorithms can adapt to various constraints and requirements, making them versatile for different optimization problems.
 - **Computational Efficiency**: Low compute-time and resources required.
-
-```mermaid
-graph TD;
-    A[Start] --> B[Input User Locations and Preferences]
-    A --> C[Input Turf Locations]
-    B --> D[Calculate Haversine Distance]
-    C --> D
-    D --> E[Apply Outlier Discounting]
-    E --> F[Genetic Algorithm Optimization]
-    F --> G[Incorporate Weighted Users]
-    G --> H[Determine Best Turf Locations]
-    H --> I[Display Results on Interactive Map]
-    I --> J[End]
-```
 
 ## Outlier Discounting
 Users who are identified as outliers are excluded from the optimization process, which helps improving Turf suggestions because of diminishing sensitivity of distance. This is done by calculating the standard deviation of user locations and allowing users to set a threshold to determine which locations are considered outliers. By excluding these outliers, the algorithm can focus on optimizing turf locations for the majority of users, leading to more reliable results. Small differences in shorter distances (e.g., 1 km vs. 3 km) are perceived as more significant than similar differences in longer distances (e.g., 35 km vs. 37 km).
