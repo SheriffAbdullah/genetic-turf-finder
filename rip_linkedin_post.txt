@@ -1,0 +1,22 @@
+--- xD I tried to post this on LinkedIn ---
+
+Turf Town, Playo, and similar companies, here’s a scenario:
+
+My friends were debating which turf was the closest to the entire group - a common dilemma many groups face.
+
+Here’s a way to make it quicker & easier for them:
+
+What if you could simply offer one or many turfs that are closest to the group, minimizing the total distance traveled while also considering user preferences?
+
+Here’s a prototype implementation complete with documentation.
+
+Link to prototype: https://lnkd.in/gf9KF6dF
+GitHub: https://lnkd.in/gdhpbt5z
+
+Features:
+- Outlier discounting ensures the best Turf suggestion works for the majority, reducing travel frustration. Thanks to diminishing sensitivity of distance, we can exclude far-away users from the turf searching step.
+- Distance metric. Haversine distance considers the curvature of the Earth's surface. Real-time distance & time from maps could be incorporated into the genetic algorithm.
+
+This feature could help platforms like Playo increase group bookings by reducing friction and simplifying user experience.
+
+What do you think about this? Feel free to contribute to this project by building on it, or sharing your views :D
